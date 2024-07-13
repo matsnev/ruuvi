@@ -1,0 +1,23 @@
+services:
+  ruuvigateway:
+    image: ghcr.io/scrin/ruuvi-go-gateway
+    container_name: ruuvi-go-gateway
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    network_mode: host
+    devices:
+      - '/dev/ttyAMA0:/dev/ttyAMA0'  # your correct bluetooth adapter
+    volumes:
+      - ./gateway_config.yml:/config.yml:ro
+
+  ruuvibridge:
+    image: ghcr.io/scrin/ruuvibridge
+    container_name: ruuvibridge
+    restart: unless-stopped
+    # Uncomment/change if you intend to use the http listener and/or Prometheus (in the sample config they're on ports 8080 and 8081, respectively)
+    ports:
+      - 9099:9099
+      #- 8081:8081
+    volumes:
+      - ./bridge_config.yml:/config.yml:ro
