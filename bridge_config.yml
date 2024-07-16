@@ -139,6 +139,8 @@ tag_names:
   D423408592E1: 'Studio'
   D0AB09E01E70: 'Living room'
   FFDB4FE93D72: 'Entrance'
+  D66A558EF0B4: 'Back terrace'
+  DD3B1C2257CE: 'Laundry'
 
 # Logging options for RuuviBridge itself
 logging:
