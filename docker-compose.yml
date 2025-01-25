@@ -7,7 +7,9 @@ services:
       - NET_ADMIN
     network_mode: host
     devices:
-      - '/dev/ttyAMA0:/dev/ttyAMA0'  # your correct bluetooth adapter
+      # Bluetooth adapter
+      # - '/dev/ttyAMA0:/dev/ttyAMA0'  # Raspberry Pi
+      - 'dev/bus/usb/001/001:dev/bus/usb/001/001'  # Ubuntu on Raspberry Pi
     volumes:
       - ./gateway_config.yml:/config.yml:ro
 
